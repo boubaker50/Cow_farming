@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bouba.cowfarming">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/splash"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".config"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".milk"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name=".Notification_receiver" />
+
+        <activity
+            android:name=".history"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cows"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cattles"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Splashscreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".edit_cow"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Adding_cow"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Adding_cattle"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sign_in"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        >
+        <activity android:name=".Sign_up" />
+        <activity
+            android:name=".ForgotPassword"
+            android:screenOrientation="portrait" />
+        <activity android:name=".milk_interm" />
+        <activity android:name=".depense_rev"></activity>
+    </application>
+
+</manifest>

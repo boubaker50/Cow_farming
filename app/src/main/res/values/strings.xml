@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Cow farming</string>
+    <string-array name="hours_array">
+        <item>00h</item>
+        <item>01h</item>
+        <item>02h</item>
+        <item>03h</item>
+        <item>04h</item>
+        <item>05h</item>
+        <item>06h</item>
+        <item>07h</item>
+        <item>08h</item>
+        <item>09h</item>
+        <item>10h</item>
+        <item>11h</item>
+        <item>12h</item>
+        <item>13h</item>
+        <item>14h</item>
+        <item>15h</item>
+        <item>16h</item>
+        <item>17h</item>
+        <item>18h</item>
+        <item>19h</item>
+        <item>20h</item>
+        <item>21h</item>
+        <item>22h</item>
+        <item>23h</item>
+    </string-array>
+    <string-array name="days">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </string-array>
+    <string-array name="months">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string-array name="language_option">
+        <item>English</item>
+        <item>Français</item>
+        <item>Arabic</item>
+    </string-array>
+    <string name="title_activity_milk">milk</string>
+    <string name="title_activity_forgot_password">ForgotPassword</string>
+</resources>

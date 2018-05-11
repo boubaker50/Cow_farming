@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1054363855268",
+    "firebase_url": "https://cowfarming-4e004.firebaseio.com",
+    "project_id": "cowfarming-4e004",
+    "storage_bucket": "cowfarming-4e004.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054363855268:android:83fa1a62ef751bf1",
+        "android_client_info": {
+          "package_name": "com.example.bouba.cowfarming"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054363855268-8pvmocq03jo5v26kvbpluhb682slmcbp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bouba.cowfarming",
+            "certificate_hash": "91c3ad394905cc8028b3056672a8021240d7d27b"
+          }
+        },
+        {
+          "client_id": "1054363855268-ebs0fvbsktt11orfp8c64o7v3j1h0ip4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ3vOhYwXsMWIl9vxT3vCNHzxXx83zC_g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054363855268-ebs0fvbsktt11orfp8c64o7v3j1h0ip4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
