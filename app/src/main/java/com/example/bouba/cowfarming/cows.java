@@ -95,7 +95,7 @@ public class cows extends AppCompatActivity {
                 cows.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
-        if ((cow.size()>0)&&(Adding_cow.executeCmd().length()>0)){
+        if ((cow.size()>0)&&(Utility.executeCmd().length()>0)){
             int i = 0;
             for (cows_m obj : cow) {
                 i++;
@@ -107,13 +107,17 @@ public class cows extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                Intent intent = new Intent(cows.this, edit_cow.class);
-                cows_m selected = cows_mList.get(position);
-                Gson gson = new Gson();
-                String myJson = gson.toJson(selected);
-                intent.putExtra("myjson", myJson);
-                startActivity(intent);
-                cows.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                if (cows_mList.get(position).getGender_c().equals("Female")) {
+                    Intent intent = new Intent(cows.this, edit_cow.class);
+                    cows_m selected = cows_mList.get(position);
+                    Gson gson = new Gson();
+                    String myJson = gson.toJson(selected);
+                    intent.putExtra("myjson", myJson);
+                    startActivity(intent);
+                    cows.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                }
+                else
+                    Toast.makeText(cows.this, "This is a male tap on the female only", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -126,7 +130,9 @@ public class cows extends AppCompatActivity {
                 int pic = obj.getPic_c();
                 String url = link+obj.getMat_c()+".jpg";
                 String note = obj.getNote_c();
-                gridArray.add(new Item(mat, birth, pic, url, note, gender));
+                String velage = Utility.manage_date(obj.getEdit_cow_m().getDate_mating(), "add");
+                String stop = Utility.manage_date(velage, "minus");
+                gridArray.add(new Item(mat, birth, pic, gender, url, note, velage, stop));
                 customGridAdapter = new CustomGridViewAdapter(this, R.layout.cow_view, gridArray);
                 gridView.setAdapter(customGridAdapter);
             }

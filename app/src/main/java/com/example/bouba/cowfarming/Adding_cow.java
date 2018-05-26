@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.bouba.cowfarming.Model.cows_m;
+import com.example.bouba.cowfarming.Model.edit_cow_m;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,7 +70,7 @@ public class Adding_cow extends AppCompatActivity {
             folder.mkdirs();
         final Button clear = (Button) findViewById(R.id.clear1);
         save = (Button) findViewById(R.id.save1);
-        matric = (EditText) findViewById(R.id.matricule);
+        matric = (EditText) findViewById(R.id.matricule1);
         final EditText notes = (EditText) findViewById(R.id.note1);
         gender = (Spinner) findViewById(R.id.spinner1);
         gender.setSelection(0);
@@ -129,11 +130,10 @@ public class Adding_cow extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabel(dob, myCalendar);
+                Utility.updateLabel(dob, myCalendar);
             }
         };
         dob.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +160,14 @@ public class Adding_cow extends AppCompatActivity {
                     Toast.makeText(Adding_cow.this, "Matricule field can't be empty", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if (dob.getText().toString().length() == 0) {
+                    Toast.makeText(Adding_cow.this, "Date of birth field can't be empty", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if (gender.getSelectedItem().toString().equals("Gender")) {
+                    Toast.makeText(Adding_cow.this, "Gender field need to be selected.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 if ((objectCow.getGender_c().equals("Male")) && (!f.exists()) && (!f.isDirectory())) {
                     objectCow.setPic_c(R.drawable.bmale);
                     pic = R.drawable.bmale;
@@ -171,8 +179,10 @@ public class Adding_cow extends AppCompatActivity {
                     pic = 0;
                 }
                 objectCow.setNote_c(notes.getText().toString());
+                edit_cow_m edit_cow_m = new edit_cow_m(objectCow.getId_c(), "", "", "0");
+                objectCow.setEdit_cow_m(edit_cow_m);
                 boolean createSuccessful = false;
-                String a = executeCmd();
+                String a = Utility.executeCmd();
                 Log.e("length", ""+a.length());
                 if ((a .length() == 0)&&(objectCow.getBirth_c() != null)){
                     createSuccessful = new TableControllerStudent(Adding_cow.this).create_cow(objectCow);
@@ -199,11 +209,6 @@ public class Adding_cow extends AppCompatActivity {
         picture.setImageResource(0);
         picture.setVisibility(View.VISIBLE);
     }
-    public static void updateLabel(EditText dob, Calendar myCalendar) {
-        String myFormat = "dd/MM/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-        dob.setText(sdf.format(myCalendar.getTime()));
-    }
     public void saveimage(File image){
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -213,22 +218,7 @@ public class Adding_cow extends AppCompatActivity {
         imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
         startActivityForResult(imageIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
-    public static String executeCmd(){
-        String res = "";
-        try {
-            Process p;
-            p= Runtime.getRuntime().exec("ping -c 1 -w 1 8.8.8.8");
-            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String s;
-            while ((s = stdInput.readLine()) != null) {
-                res += s + "\n";
-            }
-            p.destroy();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return res;
-    }
+
     @Override
     public void onBackPressed() {
         Intent i = new Intent(this, MainActivity.class);

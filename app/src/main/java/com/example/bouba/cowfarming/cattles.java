@@ -95,7 +95,7 @@ public class cattles extends AppCompatActivity {
                 cattles.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
-        if ((cow.size()>0)&&(Adding_cow.executeCmd().length()>0)){
+        if ((cow.size()>0)&&(Utility.executeCmd().length()>0)){
             int i = 0;
             for (cattles_m obj : cow) {
                 i++;
@@ -120,7 +120,7 @@ public class cattles extends AppCompatActivity {
                 String gender = obj.getGender_ca();
                 String url = link+obj.getMat_ca()+".jpg";
                 String note = obj.getNote_ca();
-                gridArray.add(new Item(mat, birth, pic, url, note, gender));
+                gridArray.add(new Item(mat, birth, pic, url, note, gender, "", ""));
                 customGridAdapter = new CustomGridViewAdapter(this, R.layout.cattle_view, gridArray);
                 gridView.setAdapter(customGridAdapter);
             }

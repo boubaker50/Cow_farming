@@ -11,25 +11,20 @@ public class milk_m {
 
     }
 
-    public milk_m(String id_m, String date, String bon, String mor, String eve, String tot, String earn, String nb_cow, String avg, String user) {
-        this.id_m = id_m;
-        this.date_m = date;
-        this.bon_m = bon;
-        this.morning_m = mor;
-        this.evening_m = eve;
-        this.total_m = tot;
-        this.earned_m = earn;
-        this.nb_cow_m = nb_cow;
-        this.average_m = avg;
-        this.user = user;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
+    @Override
+    public String toString() {
+        return "milk_m{" +
+                "id_m='" + id_m + '\'' +
+                ", user='" + user + '\'' +
+                ", date_m='" + date_m + '\'' +
+                ", bon_m='" + bon_m + '\'' +
+                ", morning_m='" + morning_m + '\'' +
+                ", evening_m='" + evening_m + '\'' +
+                ", total_m='" + total_m + '\'' +
+                ", earned_m='" + earned_m + '\'' +
+                ", nb_cow_m='" + nb_cow_m + '\'' +
+                ", average_m='" + average_m + '\'' +
+                '}';
     }
 
     public String getId_m() {
@@ -40,68 +35,88 @@ public class milk_m {
         this.id_m = id_m;
     }
 
-    public String getDate() {
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getDate_m() {
         return date_m;
     }
 
-    public void setDate(String date) {
-        this.date_m = date;
+    public void setDate_m(String date_m) {
+        this.date_m = date_m;
     }
 
-    public String getBon() {
+    public String getBon_m() {
         return bon_m;
     }
 
-    public void setBon(String bon) {
-        this.bon_m = bon;
+    public void setBon_m(String bon_m) {
+        this.bon_m = bon_m;
     }
 
-    public String getMor() {
+    public String getMorning_m() {
         return morning_m;
     }
 
-    public void setMor(String mor) {
-        this.morning_m = mor;
+    public void setMorning_m(String morning_m) {
+        this.morning_m = morning_m;
     }
 
-    public String getEve() {
+    public String getEvening_m() {
         return evening_m;
     }
 
-    public void setEve(String eve) {
-        this.evening_m = eve;
+    public void setEvening_m(String evening_m) {
+        this.evening_m = evening_m;
     }
 
-    public String getTot() {
+    public String getTotal_m() {
         return total_m;
     }
 
-    public void setTot(String tot) {
-        this.total_m = tot;
+    public void setTotal_m(String total_m) {
+        this.total_m = total_m;
     }
 
-    public String getEarn() {
+    public String getEarned_m() {
         return earned_m;
     }
 
-    public void setEarn(String earn) {
-        this.earned_m = earn;
+    public void setEarned_m(String earned_m) {
+        this.earned_m = earned_m;
     }
 
-    public String getNb_cow() {
+    public String getNb_cow_m() {
         return nb_cow_m;
     }
 
-    public void setNb_cow(String nb_cow) {
-        this.nb_cow_m = nb_cow;
+    public void setNb_cow_m(String nb_cow_m) {
+        this.nb_cow_m = nb_cow_m;
     }
 
-    public String getAvg() {
+    public String getAverage_m() {
         return average_m;
     }
 
-    public void setAvg(String avg) {
-        this.average_m = avg;
+    public void setAverage_m(String average_m) {
+        this.average_m = average_m;
     }
 
+    public milk_m(String id_m, String user, String date_m, String bon_m, String morning_m, String evening_m, String total_m, String earned_m, String nb_cow_m, String average_m) {
+        this.id_m = id_m;
+        this.user = user;
+        this.date_m = date_m;
+        this.bon_m = bon_m;
+        this.morning_m = morning_m;
+        this.evening_m = evening_m;
+        this.total_m = total_m;
+        this.earned_m = earned_m;
+        this.nb_cow_m = nb_cow_m;
+        this.average_m = average_m;
+    }
 }

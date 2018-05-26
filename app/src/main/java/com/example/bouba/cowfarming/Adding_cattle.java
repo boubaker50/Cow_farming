@@ -127,7 +127,7 @@ public class Adding_cattle extends AppCompatActivity {
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabel(dob, myCalendar);
+                Utility.updateLabel(dob, myCalendar);
             }
         };
         dob.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +167,7 @@ public class Adding_cattle extends AppCompatActivity {
                 }
                 objectCow.setNote_ca(notes.getText().toString());
                 boolean createSuccessful = false;
-                String a = executeCmd();
+                String a = Utility.executeCmd();
                 Log.e("length", ""+a.length());
                 if ((a .length() == 0)&&(objectCow.getBirth_ca() != null)){
                     createSuccessful = new TableControllerStudent(Adding_cattle.this).create_cattle(objectCow);

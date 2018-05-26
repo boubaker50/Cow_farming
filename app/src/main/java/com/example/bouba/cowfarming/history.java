@@ -154,14 +154,14 @@ public class history extends AppCompatActivity {
         linearLayoutRecords.removeAllViews();
         if (c.size() > 0) {
             for (milk_m obj : c) {
-                String Date = obj.getDate();
-                String Bon = obj.getBon();
-                String Morning = obj.getMor();
-                String Evening = obj.getEve();
-                String Total = obj.getTot();
-                String Earned = obj.getEarn();
-                String Nb_cow = obj.getNb_cow();
-                String Average = obj.getAvg();
+                String Date = obj.getDate_m();
+                String Bon = obj.getBon_m();
+                String Morning = obj.getMorning_m();
+                String Evening = obj.getEvening_m();
+                String Total = obj.getTotal_m();
+                String Earned = obj.getEarned_m();
+                String Nb_cow = obj.getNb_cow_m();
+                String Average = obj.getAverage_m();
                 date.add(Date);
                 tot.add(Total);
                 ear.add(Earned);

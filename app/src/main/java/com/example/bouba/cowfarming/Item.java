@@ -11,16 +11,34 @@ public class Item {
     String gender;
     String url;
     String note;
+    String velage;
+    String stop;
 
-
-    public Item(String matricule, String dob, int pic, String url, String note, String gender) {
-        super();
+    public Item(String matricule, String dob, int pic, String gender, String url, String note, String velage, String stop) {
         this.matricule = matricule;
         this.dob = dob;
         this.pic = pic;
+        this.gender = gender;
         this.url = url;
         this.note = note;
-        this.gender = gender;
+        this.velage = velage;
+        this.stop = stop;
+    }
+
+    public String getVelage() {
+        return velage;
+    }
+
+    public void setVelage(String velage) {
+        this.velage = velage;
+    }
+
+    public String getStop() {
+        return stop;
+    }
+
+    public void setStop(String stop) {
+        this.stop = stop;
     }
 
     public String getGender() {

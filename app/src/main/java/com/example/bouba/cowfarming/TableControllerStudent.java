@@ -20,14 +20,14 @@ public class TableControllerStudent extends DatabaseHandler {
     public boolean create(milk_m objectDays) {
 
         ContentValues values = new ContentValues();
-        values.put("Bon", objectDays.getBon());
-        values.put("Date", objectDays.getDate());
-        values.put("Morning", objectDays.getMor());
-        values.put("Evening", objectDays.getEve());
-        values.put("Total", objectDays.getTot());
-        values.put("Earned", objectDays.getEarn());
-        values.put("Nb_cow", objectDays.getNb_cow());
-        values.put("Average", objectDays.getAvg());
+        values.put("Bon", objectDays.getBon_m());
+        values.put("Date", objectDays.getDate_m());
+        values.put("Morning", objectDays.getMorning_m());
+        values.put("Evening", objectDays.getEvening_m());
+        values.put("Total", objectDays.getTotal_m());
+        values.put("Earned", objectDays.getEarned_m());
+        values.put("Nb_cow", objectDays.getNb_cow_m());
+        values.put("Average", objectDays.getAverage_m());
         SQLiteDatabase db = this.getWritableDatabase();
 
         boolean createSuccessful = db.insert("Today_rec", null, values) > 0;
@@ -93,14 +93,14 @@ public class TableControllerStudent extends DatabaseHandler {
                 String nb_cow= cursor.getString(cursor.getColumnIndex("Nb_cow"));
                 String avg = cursor.getString(cursor.getColumnIndex("Average"));
                 milk_m object_days = new milk_m();
-                object_days.setDate(Date);
-                object_days.setBon(bon);
-                object_days.setMor(mor);
-                object_days.setEve(eve);
-                object_days.setTot(tot);
-                object_days.setEarn(earn);
-                object_days.setNb_cow(nb_cow);
-                object_days.setAvg(avg);
+                object_days.setDate_m(Date);
+                object_days.setBon_m(bon);
+                object_days.setMorning_m(mor);
+                object_days.setEvening_m(eve);
+                object_days.setTotal_m(tot);
+                object_days.setEarned_m(earn);
+                object_days.setNb_cow_m(nb_cow);
+                object_days.setAverage_m(avg);
                 recordsList.add(object_days);
 
             } while (cursor.moveToNext());

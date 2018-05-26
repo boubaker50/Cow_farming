@@ -64,8 +64,6 @@ public class milk extends AppCompatActivity {
         final Button save = (Button)findViewById(R.id.button8);
         final int[] x = {0};
         final int[] y = {0};
-        final Calendar myCalendar = Calendar.getInstance();
-        final int a = Integer.parseInt(tot.getText().toString());
         final int[] b = {1};
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,28 +79,25 @@ public class milk extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                milk_m  objectDays = new milk_m();
-                objectDays.setDate(currentDateandTime);
-                objectDays.setBon(bon.getText().toString());
-                objectDays.setMor(mor.getText().toString());
-                objectDays.setEve(eve.getText().toString());
-                objectDays.setTot(tot.getText().toString());
-                objectDays.setEarn(earned.getText().toString());
-                objectDays.setNb_cow(nb_cow.getText().toString());
-                objectDays.setAvg(aver.getText().toString());
-                if ((objectDays.getBon().length()==0)||(objectDays.getMor().length()==0)||(objectDays.getEve().length()==0)||(objectDays.getNb_cow().length()==0)){
+                milk_m  milk = new milk_m();
+                milk.setDate_m(currentDateandTime);
+                milk.setBon_m(bon.getText().toString());
+                milk.setMorning_m(mor.getText().toString());
+                milk.setEvening_m(eve.getText().toString());
+                milk.setTotal_m(tot.getText().toString());
+                milk.setEarned_m(earned.getText().toString());
+                milk.setNb_cow_m(nb_cow.getText().toString());
+                milk.setAverage_m(aver.getText().toString());
+                if ((milk.getBon_m().length()==0)||(milk.getMorning_m().length()==0)||(milk.getEvening_m().length()==0)||(milk.getNb_cow_m().length()==0)){
                     Toast.makeText(milk.this, "You need to fill all the fields", Toast.LENGTH_LONG).show();
                     return;
                 }
-                boolean createSuccessful = new TableControllerStudent(milk.this).create(objectDays);
-                int nb = new TableControllerStudent(milk.this).count();
-
+                boolean createSuccessful = new TableControllerStudent(milk.this).create(milk);
                 if(createSuccessful){
                     Toast.makeText(milk.this, "Data saved successfully.", Toast.LENGTH_SHORT).show();
-                    String id = databaseMilk.push().getKey();
-                    milk_m milk = new milk_m(id, currentDateandTime, bon.getText().toString(), mor.getText().toString(), eve.getText().toString(),
-                            tot.getText().toString(), earned.getText().toString(), nb_cow.getText().toString(), aver.getText().toString(), muser.getString("user", "0"));
-                    databaseMilk.child(id).setValue(milk);
+                    String key = FirebaseDatabase.getInstance().getReference("Depenses").push().getKey();
+                    Log.e("Milk object", milk.toString());
+                    databaseMilk.child(key).setValue(milk);
                     Toast.makeText(milk.this, "Firebase done.", Toast.LENGTH_SHORT).show();
                     bon.setText("");
                     mor.setText("");
@@ -121,6 +116,8 @@ public class milk extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(milk.this, history.class);
                 startActivity(intent);
+                milk.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
             }
         });
         mor.addTextChangedListener(new TextWatcher() {
@@ -204,5 +201,6 @@ public class milk extends AppCompatActivity {
     public void onBackPressed() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+        milk.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

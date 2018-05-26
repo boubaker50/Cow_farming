@@ -112,8 +112,7 @@ import com.google.firebase.auth.FirebaseAuth;
                         SharedPreferences.Editor editor = muser.edit();
                         editor.putString("user", email);
                         editor.commit();
-
-                    } else {
+                    }else {
                         Toast.makeText(getApplicationContext(), "Authentification failed", Toast.LENGTH_LONG).show();
                         //Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }

@@ -28,6 +28,7 @@ public class milk_interm extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(milk_interm.this, config.class);
                 startActivity(intent);
+                milk_interm.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
         about.setOnClickListener(new View.OnClickListener() {
@@ -47,13 +48,21 @@ public class milk_interm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(milk_interm.this, milk.class));
+                milk_interm.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
             }
         });
         deprev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(milk_interm.this, depense_rev.class));
+                milk_interm.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
+    }
+    public void onBackPressed() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        milk_interm.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

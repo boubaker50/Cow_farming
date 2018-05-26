@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,8 @@ public class CustomGridViewAdapter extends ArrayAdapter<Item> {
     public CustomGridViewAdapter(Context context, int layoutResourceId, ArrayList<Item> data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
-        this.context = context; this.data = data;
+        this.context = context;
+        this.data = data;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -41,13 +43,20 @@ public class CustomGridViewAdapter extends ArrayAdapter<Item> {
             holder.matricule = (TextView) row.findViewById(R.id.textView17);
             holder.dob = (TextView) row.findViewById(R.id.textView16);
             holder.image = (ImageView) row.findViewById(R.id.imageView6);
+            holder.velage = (TextView)row.findViewById(R.id.calving);
+            holder.milking = (TextView)row.findViewById(R.id.milking);
+            holder.one = (LinearLayout)row.findViewById(R.id.one);
             row.setTag(holder);
         } else {
             holder = (RecordHolder) row.getTag();
         }
         Item item = data.get(position);
-        holder.matricule.setText(item.matricule.toString());
+        holder.matricule.setText(holder.matricule.getText().toString()+" "+item.matricule.toString());
         holder.dob.setText(item.dob.toString());
+        holder.velage.setText(item.velage);
+        holder.milking.setText(item.stop);
+        if (item.gender.equals("Male"))
+            holder.one.setVisibility(View.GONE);
         if (item.pic!=0)
             holder.image.setImageResource(item.pic);
         else{
@@ -63,5 +72,9 @@ public class CustomGridViewAdapter extends ArrayAdapter<Item> {
         TextView matricule;
         TextView dob;
         ImageView image;
+        TextView velage;
+        TextView milking;
+        String gender;
+        LinearLayout one;
     }
 }

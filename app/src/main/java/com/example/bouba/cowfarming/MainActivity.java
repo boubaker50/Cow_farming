@@ -183,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
          public void onClick(View v) {
             Intent intent = new Intent(MainActivity.this, config.class);
             startActivity(intent);
+            MainActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
          }
      });
      about_us.setOnClickListener(new View.OnClickListener() {
@@ -211,5 +212,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Message delevered to the motor", Toast.LENGTH_LONG).show();
         }
         }
-
+    public void onBackPressed() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        MainActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 }

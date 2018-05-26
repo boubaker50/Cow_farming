@@ -104,6 +104,7 @@ public class config extends AppCompatActivity {
                 }
                 Intent intent = new Intent(config.this, MainActivity.class);
                 startActivity(intent);
+                config.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
     }
@@ -117,5 +118,10 @@ public class config extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    public void onBackPressed() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        config.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

@@ -11,25 +11,25 @@ public class cows_m{
     String id_c;
     int pic_c;
     String mat_c, birth_c, gender_c, note_c, user_c;
-    public cows_m(){
+    edit_cow_m edit_cow_m;
 
-    }
-
-    public cows_m(int pic_c, String mat_c, String birth_c, String gender_c, String note_c, String user_c) {
+    public cows_m(String id_c, int pic_c, String mat_c, String birth_c, String gender_c, String note_c, String user_c, com.example.bouba.cowfarming.Model.edit_cow_m edit_cow_m) {
+        this.id_c = id_c;
         this.pic_c = pic_c;
         this.mat_c = mat_c;
         this.birth_c = birth_c;
         this.gender_c = gender_c;
         this.note_c = note_c;
         this.user_c = user_c;
+        this.edit_cow_m = edit_cow_m;
     }
 
-    public String getUser_c() {
-        return user_c;
+    public String getId_c() {
+        return id_c;
     }
 
-    public void setUser_c(String user_c) {
-        this.user_c = user_c;
+    public void setId_c(String id_c) {
+        this.id_c = id_c;
     }
 
     public int getPic_c() {
@@ -72,15 +72,23 @@ public class cows_m{
         this.note_c = note_c;
     }
 
-    @Override
-    public String toString() {
-        return "cows_m{" +
-                "id_c='" + id_c + '\'' +
-                ", pic_c=" + pic_c +
-                ", mat_c='" + mat_c + '\'' +
-                ", birth_c='" + birth_c + '\'' +
-                ", gender_c='" + gender_c + '\'' +
-                ", note_c='" + note_c + '\'' +
-                '}';
+    public String getUser_c() {
+        return user_c;
     }
+
+    public void setUser_c(String user_c) {
+        this.user_c = user_c;
+    }
+
+    public com.example.bouba.cowfarming.Model.edit_cow_m getEdit_cow_m() {
+        return edit_cow_m;
+    }
+
+    public void setEdit_cow_m(com.example.bouba.cowfarming.Model.edit_cow_m edit_cow_m) {
+        this.edit_cow_m = edit_cow_m;
+    }
+
+    public cows_m(){
+    }
+
 }
